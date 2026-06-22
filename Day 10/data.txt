@@ -1,3 +1,7 @@
 python -m venv venv -> to create env
 venv\Scripts\activate -> to activate
 deactivate
+
+pip install requests httpx    
+pip freeze > requirements.txt -> to add a file in folder
+
