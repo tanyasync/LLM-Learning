@@ -1,7 +1,7 @@
 import asyncio
 import time
 
-import httpx
+import httpx  # type: ignore[import]
 # Each URL tells the server to wait 1 second before replying.
 URLS = [
     "https://api.github.com",
