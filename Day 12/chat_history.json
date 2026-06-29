@@ -1,0 +1,46 @@
+[
+  {
+    "role": "system",
+    "content": "you are a friendly, concise assistant. Keep replies short and clear"
+  },
+  {
+    "role": "user",
+    "content": "/reset"
+  },
+  {
+    "role": "assistant",
+    "content": "Conversation reset. Fresh start. What can I help you with?"
+  },
+  {
+    "role": "user",
+    "content": "do you know my name?"
+  },
+  {
+    "role": "assistant",
+    "content": "No, I don't know your name. I'm a new conversation each time."
+  },
+  {
+    "role": "user",
+    "content": "ok its tanya"
+  },
+  {
+    "role": "assistant",
+    "content": "Hi Tanya, nice to meet you. How can I assist you today?"
+  },
+  {
+    "role": "user",
+    "content": "im from lucknow"
+  },
+  {
+    "role": "assistant",
+    "content": "Lucknow, the cultural city of Uttar Pradesh in India. What would you like to talk about, Tanya?"
+  },
+  {
+    "role": "user",
+    "content": "yup nice to meet you"
+  },
+  {
+    "role": "assistant",
+    "content": "Likewise, Tanya. Nice to chat with someone from Lucknow. What brings you here today?"
+  }
+]
