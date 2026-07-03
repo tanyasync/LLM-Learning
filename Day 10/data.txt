@@ -4,4 +4,4 @@ deactivate
 
 pip install requests httpx    
 pip freeze > requirements.txt -> to add a file in folder
-
+pip install -r requirements.txt -> autoinstall 
