@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from groq import Groq
 from sentence_transformers import SentenceTransformer
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent
 DB_DIR = BASE_DIR / "chroma_store"
 COLLECTION_NAME = "student_notes"
 MODEL_NAME = "llama-3.1-8b-instant"

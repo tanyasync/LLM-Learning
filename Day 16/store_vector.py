@@ -8,7 +8,7 @@ from sentence_transformers import SentenceTransformer
 
 
 # `BASE_DIR` points to the Day 18 folder.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent
 # `DB_DIR` is where Chroma will save its database files on disk.
 DB_DIR = BASE_DIR / "chroma_store"
 # `COLLECTION_NAME` is the logical table-like name inside Chroma.
