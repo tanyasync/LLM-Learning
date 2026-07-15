@@ -4,7 +4,6 @@ from langchain_core.documents import Document
 POLICY = """
 Refund policy. Customers may request a refund within 30 days of purchase.
 Refunds are processed to the original payment method within 5 business days.
-
 Shipping. We ship across India. Standard delivery takes 4 to 7 working days.
 Express delivery (extra charge) arrives in 1 to 2 days in metro cities.
 
@@ -33,7 +32,7 @@ docs = splitter.create_documents(
 print(f"As Documents: {len(docs)} of them. First one:")
 first = docs[0]
 print("  .page_content:", repr(first.page_content[:60]), "...")
-print("  .metadata    :", first.metadata)     # {'source': 'policy.txt'}
+print("  .metadata    :", first.metadata)    
 print()
 
 manual = Document(page_content="FAQ: yes, cash on delivery is available.",
