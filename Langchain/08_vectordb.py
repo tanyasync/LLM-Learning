@@ -20,7 +20,6 @@ query = "how do I get my money back?"
 results = store.similarity_search(query, k=2)
 print(f"similarity_search({query!r}, k=2):")
 
-
 for d in results:
     print(f"  [{d.metadata['source']:8}] {d.page_content}")
 print()
@@ -34,7 +33,6 @@ print()
 retriever = store.as_retriever(search_kwargs={"k": 2})
 result2 = retriever.invoke("when will my order arrive?")
 print(result2)
-
 
 for d in result2:
     print(f"  [{d.metadata['source']:8}] {d.page_content}")
