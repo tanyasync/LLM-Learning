@@ -24,3 +24,26 @@ def technical(state: State) -> dict:
 
 def general(state: State) -> dict:
     return {"reply": "Thanks for reaching out! A team member will get back to you."}
+
+builder = StateGraph(State)
+builder.add_node("classify", classify)
+builder.add_node("billing", billing)
+builder.add_node("technical", technical)
+builder.add_node("general", general)
+
+builder.add_edge(START, "classify")
+builder.add_conditional_edges(
+    "classify",
+    route,
+    {
+        "billing": "billing",     
+        "technical": "technical",
+        "general": "general",
+    }
+)
+builder.add_edge("billing", END)
+builder.add_edge("technical", END)
+builder.add_edge("general", END)
+graph = builder.compile()
+result=graph.invoke({"messages":"I have issue with payment"})
+print(result)
