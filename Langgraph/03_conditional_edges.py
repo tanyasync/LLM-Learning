@@ -12,6 +12,7 @@ def classify(state:State)->dict:
         category = "billing"
     elif any(w in text for w in ("error", "crash", "bug", "login", "broken")):
         category = "technical"
+    return {"category":category}
 def route(state: State) -> str:
     return state["category"] 
 
