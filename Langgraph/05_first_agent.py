@@ -20,7 +20,7 @@ if os.getenv("GROQ_API_KEY"):
     from langchain_groq import ChatGroq
     model=ChatGroq(model=MODEL,temperature=0)
     agent=create_agent(model,TOOLS)
-    question="What is 12 times 9"
+    question="Add 34 with 13 and then add 150 to it's result"
     # result=agent.invoke({"messages":[("human",question)]})
     for chunk in agent.stream({"messages":[("human",question)]},stream_node="updates"):
         for node,updates in chunk.items():
