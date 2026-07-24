@@ -64,7 +64,6 @@ def main() -> None:
     print("FINAL OUTPUT")
     print("=" * 70)
     print(result["final"])
-    
     print(
         "\nWhat happened: the state carried the hand-off. The writer never saw the\n"
         "topic 'raw' -- it saw the researcher's notes. Each agent trusted the\n"

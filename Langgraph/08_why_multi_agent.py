@@ -1,3 +1,23 @@
+"""The three shapes of an agent team (all just graphs):
+
+1) SEQUENTIAL  (an assembly line)         -> Module 02
+   START -> [research] -> [write] -> [edit] -> END
+   Each agent adds one piece; state carries the hand-off forward.
+
+2) SUPERVISOR / HIERARCHICAL (a boss)      -> Module 03
+                 +-------------+
+        +------> | supervisor  | <------+       the boss ROUTES work to a
+        |        +------+------+        |       worker, the worker reports
+        v               |              v        back, the boss decides who is
+   [researcher]     [writer]       [editor]     next -- or that it's done.
+
+3) PARALLEL  (fan-out / fan-in)            -> Module 04
+                  +--> [fact-checker] --+
+   [dispatch] ----+--> [seo-expert] ----+---> [merge]
+                  +--> [tone-expert] ---+
+   All specialists run at once; a reducer collects their notes.
+"""
+
 from typing import TypedDict
 from langgraph.graph import StateGraph, START,END
 
