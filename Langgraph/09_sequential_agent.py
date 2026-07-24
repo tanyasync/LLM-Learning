@@ -33,3 +33,42 @@ def writer(state: State) -> dict:
     draft = _ask(system, f"Topic: {state['topic']}\n\nResearch notes:\n{state['research']}")
     print("\n[writer] produced a draft:\n" + draft)
     return {"draft": draft}
+
+def editor(state: State) -> dict:
+    """Agent 3: tighten the writer's draft into a final version."""
+    system = (
+        "You are an Editor. Improve clarity and flow of the draft. Fix any awkward "
+        "wording. Return ONLY the polished paragraph."
+    )
+    final = _ask(system, state["draft"])
+    print("\n[editor] produced the final:\n" + final)
+    return {"final": final}
+
+def build_pipeline():
+    g = StateGraph(State)
+    g.add_node("researcher", researcher)
+    g.add_node("writer", writer)
+    g.add_node("editor", editor)
+    g.add_edge(START, "researcher")     
+    g.add_edge("researcher", "writer")  
+    g.add_edge("writer", "editor")      
+    g.add_edge("editor", END)           
+    return g.compile()
+
+def main() -> None:
+    pipeline=build_pipeline()
+    topic="why python is popular in AI"
+    result = pipeline.invoke({"topic": topic, "research": "", "draft": "", "final": ""})
+    
+    print("\n" + "=" * 70)
+    print("FINAL OUTPUT")
+    print("=" * 70)
+    print(result["final"])
+    
+    print(
+        "\nWhat happened: the state carried the hand-off. The writer never saw the\n"
+        "topic 'raw' -- it saw the researcher's notes. Each agent trusted the\n"
+        "previous one's output. That's an assembly line."
+    )
+if __name__ == "__main__":
+    main()
